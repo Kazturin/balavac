@@ -11,7 +11,7 @@
                 </li>
                 <li class="inline-flex items-center">
                     <a href="#" class="text-strong-blue">
-                       Новости
+                    {{ __("site.news") }}
                     </a>
                 </li>
             </ul>

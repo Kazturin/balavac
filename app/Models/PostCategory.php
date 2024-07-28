@@ -2,19 +2,15 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PostCategory extends Model
 {
-    use HasFactory;
 
     public $timestamps = false;
 
-    protected $fillable = ['title_kk', 'title_ru', 'slug','parent_id','sort'];
+    protected $fillable = ['title_kk', 'title_ru', 'slug','parent_id','sort','vaccination_route'];
 
 
     public function post(): HasOne

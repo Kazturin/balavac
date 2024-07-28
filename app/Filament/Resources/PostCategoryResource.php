@@ -52,6 +52,8 @@ class PostCategoryResource extends Resource
                     ->required()
                     ->numeric()
                     ->default(0),
+                Forms\Components\Toggle::make('vaccination_route')
+                    ->default(0),    
             ]);
     }
 

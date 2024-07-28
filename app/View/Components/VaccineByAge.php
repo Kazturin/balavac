@@ -16,7 +16,7 @@ class VaccineByAge extends Component
      */
     public function __construct()
     {
-        $this->vaccineByAge = PostCategory::query()->where('parent_id',1)->with('post')->orderBy('sort')->get();
+        $this->vaccineByAge = PostCategory::query()->where('vaccination_route',true)->with('post')->orderBy('sort')->get();
         $this->colors = ['bg-amber-500','bg-pink-500','bg-green-500','bg-yellow-500','bg-lime-500','bg-cyan-500','bg-indigo-500','bg-fuchsia-500','bg-teal-500'];
     }
 

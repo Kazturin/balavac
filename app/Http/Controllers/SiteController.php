@@ -17,16 +17,18 @@ class SiteController extends Controller
        // dd('test');
        // $questionAnswer = QuestionAnswer::orderBy("sort")->limit(10)->get();
 
-        $questionAnswer = Cache::remember('questionAnswer', 10, function () {
+        $questionAnswer = Cache::remember('questionAnswer', 60, function () {
             return QuestionAnswer::query()->where('language',app()->getLocale())->orderBy("sort")->limit(10)->get();
         });
 
-        $image = Cache::remember('image', 10, function () {
+        $image = Cache::remember('image', 60, function () {
             return Image::query()->where('category_id',Image::CATEGORY_BANNER)->orderBy("created_at","desc")->first();
         });
 
-        $posts = Cache::remember('lastPosts', 10, function () {
-            return Post::query()->limit(3)->orderBy("published_at","desc")->get();
+        $posts = Cache::remember('lastPosts', 60, function () {
+            return Post::query()->whereHas('category',function($q){
+                $q->where('vaccination_route',false);
+            })->limit(3)->orderBy("published_at","desc")->get();
         });   
 
         $about_vaccination = Cache::remember('about_vaccination', 120, function () {

@@ -27,10 +27,10 @@ class AppLayout extends Component
     public function __construct(public ?string $metaTitle = null, public ?string $metaDescription = null)
     {
       
-        $this->news = Cache::remember('lastNews', 10, function () {
+        $this->news = Cache::remember('lastNews', 120, function () {
             return News::orderBy("published_at","desc")->limit(2)->get();
         });
-        $this->menu = Cache::remember('menu', 10, function () {
+        $this->menu = Cache::remember('menu', 120, function () {
             return Menu::query()->with(['children'=> function ($query) {
                 $query->with('page');
             },'page'])->where('parent_id', NULL)->orderBy("sort")->get();
@@ -38,7 +38,7 @@ class AppLayout extends Component
 
        // dd($this->menu);
 
-        $this->footer = Cache::remember('footer', 60, function () {
+        $this->footer = Cache::remember('footer', 120, function () {
             return TextWidget::query()->where("key",'footer')->first();
         });
 

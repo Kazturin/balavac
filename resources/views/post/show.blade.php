@@ -1,6 +1,6 @@
 <x-app-layout :meta-title="$post->{'title_'.app()->getLocale()}" :meta-description="$post->shortBody()">
 <div class="bg-white mx-2 p-4 rounded-md shadow-lg mb-4">
-        <div class="flex flex-wrap md:items-center">
+        <div class="flex  flex-wrap md:flex-nowrap md:items-center">
             <ul class="flex items-center">
                 <li class="inline-flex items-center">
                     <a href="/" class="text-gray-600 hover:text-blue-500">
