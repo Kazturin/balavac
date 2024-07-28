@@ -11,7 +11,7 @@
                 </li>
                 <li class="inline-flex items-center">
                     <a href="#" class="text-strong-blue">
-                       Test
+                       {{ __('site.test') }}
                     </a>
                 </li>
             </ul>
@@ -20,7 +20,6 @@
     <div class="mx-2">
         @if ($aboutTest)
         <div class="tiptap-content">
-        <p class="font-semibold">{{ $aboutTest->{'title_'.app()->getLocale()} }}</p>
         <div>{!! $aboutTest->{'content_'.app()->getLocale()} !!}</div>
         </div>
         @endif

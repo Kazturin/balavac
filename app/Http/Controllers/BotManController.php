@@ -35,7 +35,7 @@ class BotManController extends Controller
     public function askMain($botman)
     {
         $q1_buttons = [
-            Button::create(__("chatbot.q1"))->value(1),
+            Button::create(__("chatbot.q1").'0')->value(1),
             Button::create(__("chatbot.q2"))->value(2),
             Button::create(__("chatbot.q3"))->value(3),
         ];
