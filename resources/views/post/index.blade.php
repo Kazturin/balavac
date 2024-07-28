@@ -11,7 +11,7 @@
                 </li>
                 <li class="inline-flex items-center">
                     <a href="#" class="text-strong-blue">
-                       СТАТЬИ ДОК.МЕД
+                       {{ __("site.database of scientific articles and evidence") }}
                     </a>
                 </li>
             </ul>

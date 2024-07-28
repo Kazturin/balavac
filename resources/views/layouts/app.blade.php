@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <title>{{ $metaTitle?: 'balavak.kz'}}</title>
+    <title>{{ $metaTitle?: 'balavak.kz'.' | '.__("site.app_title")}}</title>
     <meta name="description" content="{{ $metaDescription?:__("site.app_description") }}">
     <meta property="og:title" content="{{ $metaTitle?: 'balavak.kz'}}">
     <meta property="og:description" content="{{ $metaDescription?:__("site.app_description") }}">

@@ -1,4 +1,4 @@
-<x-app-layout meta-title="Title" meta-description="Description">
+<x-app-layout>
 
     <x-slot:header>
         <div class="relative h-[400px]">
