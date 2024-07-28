@@ -12,6 +12,10 @@ return [
     "go_to_page" => "Бетке өту",
     "site_search" => "Сайт бойынша іздеу",
     "news" => "Жаңалықтар",
-    "test" => "'Balavac' сауалнамасы"
+    "test" => "'Balavac' сауалнамасы",
+    "questions_count" => "Барлық сұрақтар саны",
+    "correct_answers" => "Дұрыс жауаптар саны",
+    "result" => "Қорытынды",
+    "close" => "Жабу"
 ]
 ?>

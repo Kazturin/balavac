@@ -12,7 +12,11 @@ return [
     "go_to_page" => "Перейти на страницу",
     "site_search" => "Поиск по сайту",
     "news" => "Новости",
-    "test" => "Тест 'Balavac'"
+    "test" => "Тест 'Balavac'",
+    "questions_count" => "Кол-во всех вопросов",
+    "correct_answers" => "Количество правильных ответов",
+    "result" => "Результат",
+    "close" => "Закрыть"
    
 ]
 ?>

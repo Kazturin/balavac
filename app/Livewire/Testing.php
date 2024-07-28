@@ -19,14 +19,14 @@ class Testing extends Component
     public $testComplete = false;
 
     public function mount(){
-        $this->questions = Question::with('answers')->where('language',app()->getLocale())->orderBy('number')->get()->toArray();
+        $this->questions = Question::with('answers')->whereHas('answers')->where('language',app()->getLocale())->orderBy('number')->get()->toArray();
        
         if(!empty($this->questions))
         {
             $this->currentQuestion = $this->questions[0];
         //    $this->currentQuestion['index'] = 0;
         }
-    //    dd(count($this->questions));
+      
         $this->userAnswers = collect([]);
     }
     public function render()
