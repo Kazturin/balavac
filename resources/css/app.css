@@ -35,7 +35,12 @@
     align-items: center;
     justify-content: center;
 }
-
+.desktop-closed-message-avatar{
+    box-shadow: none !important;
+    border-radius: none !important;
+    top: 20px !important;
+    height: 70px !important;
+}
 .tiptap-content {
     > * + h1,
     > * + h2,

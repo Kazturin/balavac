@@ -78,7 +78,8 @@ class NewsResource extends Resource
 
                 Forms\Components\Section::make()
                     ->schema([
-                        Forms\Components\FileUpload::make('thumbnail'),
+                        Forms\Components\FileUpload::make('thumbnail')
+                        ->image(),
                     ])->columnSpan(4)
             ])->columns(12);
     }

@@ -80,7 +80,8 @@ class PostResource extends Resource
 
                 Forms\Components\Section::make()
                     ->schema([
-                        Forms\Components\FileUpload::make('thumbnail'),
+                        Forms\Components\FileUpload::make('thumbnail')
+                        ->image(),
                         Forms\Components\Select::make('category_id')
                         ->options(PostCategory::all()->pluck('title_kk', 'id')),
                     ])->columnSpan(4)

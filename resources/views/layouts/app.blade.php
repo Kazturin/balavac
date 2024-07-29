@@ -296,10 +296,11 @@
           var start = "{{ __('chatbot.start') }}";
   var botmanWidget = {
     title: "Чат-бот",
-  aboutText: 'balavak.kz',
+  aboutText: 'balavac.kz',
   mainColor: "#EAB308",
-  introMessage: start,
-  placeholderText: ''
+  placeholderText: '',
+  bubbleBackground: 'transparent',
+  bubbleAvatarUrl: '/img/bot2.png',
   };
   
 </script>
@@ -307,7 +308,7 @@
 <script>
      window.addEventListener("load", () => {
       
-       // botmanChatWidget.whisper("start");
+        botmanChatWidget.whisper("start");
         botmanChatWidget.close();
     });
    

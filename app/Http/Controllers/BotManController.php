@@ -73,13 +73,13 @@ class BotManController extends Controller
         ->addButtons($q3_buttons);
         
 
-        $botman->ask($q1, function (Answer $answer) use($q1_2,$q2,$q3) {
+        $botman->ask($q1, function (Answer $answer) use($q1_2,$q2,$q3,$botman) {
 
 
             if ($answer->isInteractiveMessageReply()) {
                 switch ($answer->getValue()) {
                 case 1:
-                    $this->ask($q1_2, function (Answer $answer)
+                    $this->ask($q1_2, function (Answer $answer) use ($botman)
                     {
                         $q1_3_buttons = [
                             Button::create(__("chatbot.q1_bt1_answer_q1"))->value(1),
@@ -92,9 +92,9 @@ class BotManController extends Controller
                         switch ($answer->getValue()) {
                             case 1: 
                                 $this->say(__("chatbot.q1_bt1_answer"));
-                                $this->ask($q1_3, function (Answer $answer){
+                                $this->ask($q1_3, function (Answer $answer)use ($botman){
                                     switch ($answer->getValue()) {
-                                        case 1:  $this->say(__("chatbot.q1_bt1_answer_q1_ans")); break;
+                                        case 1:  $this->reset($botman) ;break;
                                         case 2:  $this->say(__("chatbot.q1_bt1_answer_q1_ans")); break;
                                     }
                                 });
@@ -162,5 +162,10 @@ class BotManController extends Controller
             //     $this->say('ppppp');
             // });
         });
+    }
+
+    public function reset($botman)
+    {
+        $this->askMain($botman);
     }
 }

@@ -30,7 +30,8 @@ class ImageResource extends Resource
                             ])->columnSpanFull(),
                 Forms\Components\Toggle::make('wallaper')
                             ->default(0),
-                Forms\Components\FileUpload::make('thumbnail'),            
+                Forms\Components\FileUpload::make('thumbnail')
+                ->image(),          
             ]);
     }
 
