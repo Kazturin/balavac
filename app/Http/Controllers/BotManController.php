@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use BotMan\BotMan\BotMan;
+use BotMan\BotMan\BotManFactory;
+use BotMan\BotMan\Drivers\DriverManager;
 use Illuminate\Http\Request;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
+use BotMan\Drivers\Web\WebDriver;
 
 class BotManController extends Controller
 {
@@ -15,7 +18,16 @@ class BotManController extends Controller
      */
     public function handle()
     {
-        $botman = app('botman');
+        
+    DriverManager::loadDriver(WebDriver::class);
+    //    $botman = app('botman');
+    $config = [
+        'matchingData' => [
+            'driver' => 'web',
+        ],
+    ];
+
+    $botman = BotManFactory::create($config);
 
         $botman->hears('{message}', function ($botman, $message) {
 
@@ -73,13 +85,13 @@ class BotManController extends Controller
         ->addButtons($q3_buttons);
         
 
-        $botman->ask($q1, function (Answer $answer) use($q1_2,$q2,$q3,$botman) {
+        $botman->ask($q1, function (Answer $answer) use($q1_2,$q2,$q3) {
 
 
             if ($answer->isInteractiveMessageReply()) {
                 switch ($answer->getValue()) {
                 case 1:
-                    $this->ask($q1_2, function (Answer $answer) use ($botman)
+                    $this->ask($q1_2, function (Answer $answer)
                     {
                         $q1_3_buttons = [
                             Button::create(__("chatbot.q1_bt1_answer_q1"))->value(1),
@@ -92,9 +104,9 @@ class BotManController extends Controller
                         switch ($answer->getValue()) {
                             case 1: 
                                 $this->say(__("chatbot.q1_bt1_answer"));
-                                $this->ask($q1_3, function (Answer $answer)use ($botman){
+                                $this->ask($q1_3, function (Answer $answer){
                                     switch ($answer->getValue()) {
-                                        case 1:  $this->reset($botman) ;break;
+                                        case 1:  $this->say(__("chatbot.q1_bt1_answer_q1_ans")); break;
                                         case 2:  $this->say(__("chatbot.q1_bt1_answer_q1_ans")); break;
                                     }
                                 });
@@ -162,10 +174,5 @@ class BotManController extends Controller
             //     $this->say('ppppp');
             // });
         });
-    }
-
-    public function reset($botman)
-    {
-        $this->askMain($botman);
     }
 }

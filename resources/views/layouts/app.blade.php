@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <title>{{ $metaTitle?: 'balavak.kz'.' | '.__("site.app_title")}}</title>
+    <title>{{ $metaTitle?: __("site.app_title")}}</title>
     <meta name="description" content="{{ $metaDescription?:__("site.app_description") }}">
     <meta property="og:title" content="{{ $metaTitle?: 'balavak.kz'}}">
     <meta property="og:description" content="{{ $metaDescription?:__("site.app_description") }}">
@@ -308,8 +308,12 @@
 <script>
      window.addEventListener("load", () => {
       
+        // botmanChatWidget.whisper("start");
+        // botmanChatWidget.close();
+        setTimeout(() => {
         botmanChatWidget.whisper("start");
         botmanChatWidget.close();
+    }, 1000); 
     });
    
 </script>
