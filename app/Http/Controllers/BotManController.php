@@ -19,18 +19,9 @@ class BotManController extends Controller
     public function handle()
     {
         
-    DriverManager::loadDriver(WebDriver::class);
-    //    $botman = app('botman');
-    $config = [
-        'matchingData' => [
-            'driver' => 'web',
-        ],
-    ];
-
-    $botman = BotManFactory::create($config);
+       $botman = app('botman');
 
         $botman->hears('{message}', function ($botman, $message) {
-
             if ($message == 'start') {
                 $this->askMain($botman);
             } else {

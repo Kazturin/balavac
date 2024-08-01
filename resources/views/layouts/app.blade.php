@@ -293,7 +293,7 @@
     </script>
       
     <script>
-          var start = "{{ __('chatbot.start') }}";
+         
   var botmanWidget = {
     title: "Чат-бот",
   aboutText: 'balavac.kz',
@@ -302,14 +302,17 @@
   bubbleBackground: 'transparent',
   bubbleAvatarUrl: '/img/bot2.png',
   };
+
+//   var botmanWidget = {
+//     frameEndpoint: '/test'    
+// };
   
 </script>
-<script src="/js/botman-web-widget.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+<!-- <script src="/js/botman-web-widget.js"></script> -->
 <script>
      window.addEventListener("load", () => {
-      
-        // botmanChatWidget.whisper("start");
-        // botmanChatWidget.close();
+    
         setTimeout(() => {
         botmanChatWidget.whisper("start");
         botmanChatWidget.close();
