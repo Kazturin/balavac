@@ -11,11 +11,6 @@
     <meta property="og:description" content="{{ $metaDescription?:__("site.app_description") }}">
     <meta property="og:image" content="/img/not_photo.png">
 
-
-    <!-- Fonts -->
-    <!-- <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /> -->
-
     @vite(['resources/css/app.css'])
     @livewireStyles
 </head>
@@ -262,12 +257,11 @@
 
     @livewireScripts
     @livewire('wire-elements-modal')
-    @vite(['resources/js/app.js'])
-    <!-- <script src="/js/init-alpine.js"></script> -->
- 
+    @vite(['resources/js/app.js','resources/js/botman-web-widget.js'])
+      
     <script>
-
-        document.addEventListener('alpine:init', () => {
+         
+         document.addEventListener('alpine:init', () => {
             Alpine.store('accordion', {
                 tab: 0
             });
@@ -289,12 +283,9 @@
                 }
             }));
         })
-        
-    </script>
-      
-    <script>
-         
+
   var botmanWidget = {
+    chatServer: '/botman',
     title: "Чат-бот",
   aboutText: 'balavac.kz',
   mainColor: "#EAB308",
@@ -303,22 +294,15 @@
   bubbleAvatarUrl: '/img/bot2.png',
   };
 
-//   var botmanWidget = {
-//     frameEndpoint: '/test'    
-// };
+
+window.addEventListener("load", () => {
+setTimeout(() => {
+    console.log(botmanChatWidget);
+botmanChatWidget.whisper("start");
+botmanChatWidget.close();
+}, 1000); 
+});
   
-</script>
-<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
-<!-- <script src="/js/botman-web-widget.js"></script> -->
-<script>
-     window.addEventListener("load", () => {
-    
-        setTimeout(() => {
-        botmanChatWidget.whisper("start");
-        botmanChatWidget.close();
-    }, 1000); 
-    });
-   
 </script>
     @stack('scripts')
 </body>

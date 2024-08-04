@@ -57,7 +57,7 @@ class AppLayout extends Component
      */
     public function render(): View|Closure|string
     {
-      //  dd($this->menu);
+         //  dd($this->menu);
         return view('layouts.app');
     }
 }

@@ -21,7 +21,7 @@ class BotManController extends Controller
         
        $botman = app('botman');
 
-        $botman->hears('{message}', function ($botman, $message) {
+       $botman->hears('{message}', function ($botman, $message) {
             if ($message == 'start') {
                 $this->askMain($botman);
             } else {
@@ -38,7 +38,7 @@ class BotManController extends Controller
     public function askMain($botman)
     {
         $q1_buttons = [
-            Button::create(__("chatbot.q1").'0')->value(1),
+            Button::create(__("chatbot.q1"))->value(1),
             Button::create(__("chatbot.q2"))->value(2),
             Button::create(__("chatbot.q3"))->value(3),
         ];
@@ -97,8 +97,12 @@ class BotManController extends Controller
                                 $this->say(__("chatbot.q1_bt1_answer"));
                                 $this->ask($q1_3, function (Answer $answer){
                                     switch ($answer->getValue()) {
-                                        case 1:  $this->say(__("chatbot.q1_bt1_answer_q1_ans")); break;
-                                        case 2:  $this->say(__("chatbot.q1_bt1_answer_q1_ans")); break;
+                                        case 1:  $this->say(__("chatbot.q1_bt1_answer_q1_ans"));
+                                           $this->say(__("chatbot.to_main"));
+                                           break;
+                                        case 2:  $this->say(__("chatbot.q1_bt1_answer_q1_ans")); 
+                                           $this->say(__("chatbot.to_main"));
+                                           break;
                                     }
                                 });
                             break;
@@ -106,8 +110,10 @@ class BotManController extends Controller
                                 $this->say(__("chatbot.q1_bt2_answer"));
                                 $this->ask($q1_3, function (Answer $answer){
                                     switch ($answer->getValue()) {
-                                        case 1:  $this->say(__("chatbot.q1_bt2_answer_q1_ans")); break;
-                                        case 2:  $this->say(__("chatbot.q1_bt2_answer_q2_ans")); break;
+                                        case 1:  $this->say(__("chatbot.q1_bt2_answer_q1_ans"));
+                                           $this->say(__("chatbot.to_main")); break;
+                                        case 2:  $this->say(__("chatbot.q1_bt2_answer_q2_ans"));
+                                           $this->say(__("chatbot.to_main")); break;
                                     }
                                 });
                             break;
@@ -115,8 +121,10 @@ class BotManController extends Controller
                                 $this->say(__("chatbot.q1_bt3_answer"));
                                 $this->ask($q1_3, function (Answer $answer){
                                     switch ($answer->getValue()) {
-                                        case 1:  $this->say(__("chatbot.q1_bt3_answer_q1_ans")); break;
-                                        case 2:  $this->say(__("chatbot.q1_bt3_answer_q1_ans")); break;
+                                        case 1:  $this->say(__("chatbot.q1_bt3_answer_q1_ans"));
+                                           $this->say(__("chatbot.to_main")); break;
+                                        case 2:  $this->say(__("chatbot.q1_bt3_answer_q1_ans"));
+                                           $this->say(__("chatbot.to_main")); break;
                                     }
                                 });
                             break;
@@ -129,12 +137,15 @@ class BotManController extends Controller
                         switch ($answer->getValue()) {
                             case 1: 
                                 $this->say(__("chatbot.q2_bt1_ans"));
+                                $this->say(__("chatbot.to_main"));
                                 break;
                             case 2: 
                                 $this->say(__("chatbot.q2_bt2_ans"));
+                                $this->say(__("chatbot.to_main"));
                                 break;  
                             case 3: 
                                 $this->say(__("chatbot.q2_bt3_ans"));
+                                $this->say(__("chatbot.to_main"));
                                 break;      
                         }
                     });
@@ -145,12 +156,15 @@ class BotManController extends Controller
                                 switch ($answer->getValue()) {
                                     case 1: 
                                         $this->say(__("chatbot.q3_bt1_ans"));
+                                        $this->say(__("chatbot.to_main"));
                                         break;
                                     case 2: 
                                         $this->say(__("chatbot.q3_bt2_ans"));
+                                        $this->say(__("chatbot.to_main"));
                                         break;  
                                     case 3: 
                                         $this->say(__("chatbot.q3_bt3_ans"));
+                                        $this->say(__("chatbot.to_main"));
                                         break;      
                                 }
                             });
