@@ -498,7 +498,7 @@ div[data-type="details"] {
         border-bottom-style: solid;
         border-bottom-width: 1px;
         border-bottom-color: theme("colors.gray.200");
-
+        cursor: pointer;
         &::marker {
             content: "";
             display: none;
@@ -513,6 +513,10 @@ div[data-type="details"] {
             margin-block-start: 1rem;
         }
     }
+}
+
+summary {
+    cursor: pointer;
 }
 
 .filament-tiptap-grid-builder, blockquote, details,.tiptap-content iframe, table {

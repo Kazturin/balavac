@@ -98,7 +98,6 @@ class PostResource extends Resource
                 Tables\Columns\IconColumn::make('active')
                     ->sortable()
                     ->boolean(),
-                Tables\Columns\TextColumn::make('category.title_kk'),
                 Tables\Columns\TextColumn::make('published_at')
                     ->sortable()
                     ->dateTime(),

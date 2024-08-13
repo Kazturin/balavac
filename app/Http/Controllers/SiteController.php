@@ -26,9 +26,7 @@ class SiteController extends Controller
         });
 
         $posts = Cache::remember('lastPosts', 60, function () {
-            return Post::query()->whereHas('category',function($q){
-                $q->where('vaccination_route',false);
-            })->limit(3)->orderBy("published_at","desc")->get();
+            return Post::query()->limit(3)->orderBy("published_at","desc")->get();
         });   
 
         $about_vaccination = Cache::remember('about_vaccination', 120, function () {

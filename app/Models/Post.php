@@ -18,7 +18,6 @@ class Post extends Model
         'slug',
         'thumbnail', 
         'active', 
-        'category_id', 
         'published_at', 
         'meta_title', 
         'meta_description'];
@@ -49,11 +48,6 @@ class Post extends Model
 //    {
 //        return $this->belongsTo(User::class);
 //    }
-
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(PostCategory::class);
-    }
 
     public function shortBody($words = 30): string
     {

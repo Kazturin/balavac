@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
-            $table->foreignId('category_id')->constrained('post_categories')->onDelete('cascade');
             $table->boolean('active')->default(true);
             $table->datetime('published_at')->nullable();
             $table->timestamps();
