@@ -11,7 +11,7 @@
                 </li>
                 <li class="inline-flex items-center">
                     <a href="#" class="text-strong-blue">
-                        {{ $page->menu->{'title_'.app()->getLocale()} .' | '. $page->{'title_'.app()->getLocale()} }}
+                        {{ $page->{'title_'.app()->getLocale()} }}
                     </a>
                 </li>
             </ul>
@@ -28,5 +28,21 @@
            </div>
         </div>
     </div>
+
+    <x-slot:aside>
+    <div class="divide-y divide-slate-200 bg-cyan-800 rounded-md mb-4 drop-shadow-lg">
+        <ul class="text-white">
+        @foreach($menus as $item)
+                <li 
+                @class([
+                    'font-semibold border-b border-white py-2 px-4',
+                    'text-gray-400' => $item->id===$page->menu->id,
+                    ])>
+                    <a href="{{ $item->page ? route('page',['locale'=>app()->getLocale(),'page'=>$item->page]) : '#' }}">{{ $item->{'title_'.app()->getLocale()} }}</a>
+                </li>
+        @endforeach
+        </ul>
+    </div>
+    </x-slot:aside>
 
 </x-app-layout>

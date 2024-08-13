@@ -3,7 +3,7 @@
                     <ul class="grid grid-rows-3 grid-flow-col mt-4 gap-4 mb-4">
                         @foreach ($vaccineByAge as $key=>$item)
                          <li class="m-auto">
-                            <a href="{{ $item->post ? route('post.view',['locale'=>app()->getLocale(),'post'=>$item->post]) : '#' }}" id="id{{$item->id}}"
+                            <a href="{{ $item->page ? route('page',['locale'=>app()->getLocale(),'page'=>$item->page]) : '#' }}" id="id{{$item->id}}"
                                 class="{{$colors[$key]}} animate-pulse flex justify-center items-center rounded-full drop-shadow-lg bg-amber-500 w-24 h-24 hover:w-28 hover:h-28 sm:w-32 sm:h-32">
                                 <div
                                     class="flex justify-center items-center w-20 h-20 sm:w-28 sm:h-28 rounded-full border-white border-2">

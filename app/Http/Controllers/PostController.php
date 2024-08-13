@@ -10,21 +10,13 @@ class PostController extends Controller
 {
     public function index(string $locale=null)
     {
-        $posts = Post::orderBy("created_at","desc")->with('category')->paginate(5);
-        $categories = PostCategory::with(['children','post'])->where('parent_id', NULL)->orderBy("sort")->get();
+        $posts = Post::orderBy("created_at","desc")->paginate(5);
 
-        return view("post.index", compact("posts","categories"));
+        return view("post.index", compact("posts"));
     }
 
     public function show(string $locale=null,Post $post)
     {
-        $categories = PostCategory::with(['children' => function ($query) {
-            $query->with('post');
-        }])->with('post')->where('parent_id', NULL)->orderBy("sort")->get();
-
-        $postCategory = $post->category;
-        // dd($post->category);
-      // dd($categories[0]->children->contains($post->category));
-        return view("post.show", compact("post","categories","postCategory"));
+        return view("post.show", compact("post"));
     }
 }

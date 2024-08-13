@@ -297,7 +297,6 @@
 
 window.addEventListener("load", () => {
 setTimeout(() => {
-    console.log(botmanChatWidget);
 botmanChatWidget.whisper("start");
 botmanChatWidget.close();
 }, 1000); 

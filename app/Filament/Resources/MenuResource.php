@@ -69,6 +69,9 @@ class MenuResource extends Resource
                     ->options(MenuCategory::all()->pluck('title', 'id')),
                 Forms\Components\Toggle::make('active')
                     ->default(1),
+                Forms\Components\Toggle::make('vaccination_route')
+                    ->default(0)
+                    ->label('Маршрут вакцинации'), 
                 ]),
                 Section::make('Контент')
                     ->relationship('page',condition: fn (?array $state): bool => filled($state['title_kk']))
@@ -110,9 +113,9 @@ class MenuResource extends Resource
                         ->maxLength(255),
                     Forms\Components\Select::make('parent_id')
                         ->options(Page::all()->pluck('title_kk', 'id')),
-                    Forms\Components\DateTimePicker::make('published_at'),
                     Forms\Components\Toggle::make('active')
                         ->default(1),
+                   
             ])    
             ]);
     }

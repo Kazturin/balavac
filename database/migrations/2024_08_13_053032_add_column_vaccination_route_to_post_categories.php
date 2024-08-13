@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('post_categories', function (Blueprint $table) {
+        Schema::table('menus', function (Blueprint $table) {
             $table->boolean('vaccination_route')->default(false)->after('sort');
         });
     }
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('post_categories', function (Blueprint $table) {
+        Schema::table('menus', function (Blueprint $table) {
             $table->dropColumn('vaccination_route');
         });
     }

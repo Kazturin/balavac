@@ -18,6 +18,7 @@ class Menu extends Model
        'link',
        'slug',
        'sort',
+       'vaccination_route',
        'category_id',
        'active',
     ];

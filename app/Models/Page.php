@@ -22,7 +22,6 @@ class Page extends Model
         'meta_title',
         'meta_description',
         'active',
-        'published_at'
     ];
 
     protected $casts = [
@@ -35,11 +34,6 @@ class Page extends Model
 
     public function menu(){
         return $this->hasOne(Menu::class,'id','menu_id');
-    }
-
-    public function setPublishedAtAttribute($value)
-    {
-        $this->attributes['published_at'] = $value ?: now();
     }
 
     public function getThumbnail()

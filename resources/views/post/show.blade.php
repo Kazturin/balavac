@@ -29,63 +29,9 @@
         @endif
         <div class="p-4">
            <h1 class="text-strong-blue text-2xl font-semibold border-b mt-4 pb-4">{{ $post->{'title_'.app()->getLocale()} }}</h1>
-           <p class="text-gray-600 italic text-sm">{{ $post->category->{'title_'.app()->getLocale()} }}</p>
            <div class="mt-4 tiptap-content">
            {!! $post->{'content_'.app()->getLocale()} !!}
            </div>
         </div>
     </div>
-    <x-slot:aside>
-    <div class="divide-y divide-slate-200 bg-cyan-800 rounded-md mb-4 drop-shadow-lg">
-        <ul>
-        @foreach($categories as $item)
-            @if(count($item->children)>0)
-            <li x-data="{ expanded: {{ $item->children->contains($postCategory) ? 'true' : 'false' }} }">
-                <button
-                    id="faqs-title-{{$item->id}}"
-                    type="button"
-                    class="flex items-center justify-between w-full border-b border-white text-left text-white font-semibold mt-2 p-4"
-                    @click="expanded = !expanded"
-                    :aria-expanded="expanded"
-                    aria-controls="faqs-text-{{$item->id}}"
-                >
-                    <span>{{ $item->title_kk }}</span>
-                    <svg class="fill-white shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                        <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                        <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
-                    </svg>
-                </button>
-                <div x-show="expanded"
-                    id="faqs-text-{{$item->id}}"
-                    role="region"
-                    aria-labelledby="faqs-title-01"
-                    class="bg-cyan-700 grid text-sm text-slate-600 overflow-hidden rounded-b-md transition-all duration-300 ease-in-out p-4"
-                    :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
-                >
-                    <div class="overflow-hidden">
-                        <ul>
-                            @foreach($item->children as $child)
-                                <li 
-                                @class([
-                                        'text-gray-200 font-semibold ml-2 p-2',
-                                        'border border-white rounded-md' => $child->post && $child->post->id===$post->id,
-                                    ])
-                                >
-                                    <a href="{{ $child->post ? route('post.view',['locale'=>app()->getLocale(),'post'=>$child->post]) : '#' }}">{{ $child->{'title_'.app()->getLocale()} }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                </div>
-            </li>
-            @else
-                <li class="text-white font-semibold border-b border-white p-4">
-                    <a href="{{ $item->post ? route('post.view',['locale'=>app()->getLocale(),'post'=>$item->post]) : '#' }}">{{ $item->{'title_'.app()->getLocale()} }}</a>
-                </li>
-            @endif
-        @endforeach
-        </ul>
-    </div>
-    </x-slot:aside>
 </x-app-layout>
