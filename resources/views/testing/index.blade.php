@@ -1,4 +1,4 @@
-<x-app-layout meta-title="Title" meta-description="Description">
+<x-app-layout :meta-title="__('site.test')" meta-description="">
 <div class="bg-white mx-2 p-4 rounded-md shadow-lg mb-6">
         <div class="flex items-center flex-wrap">
             <ul class="flex items-center">

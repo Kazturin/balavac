@@ -6,8 +6,8 @@
              <div class="hero-gradient absolute inset-0"> 
                   <div class="container mx-auto px-4">
                     <div class="absolute top-1/2 translate-x-0 -translate-y-1/2 w-full md:w-2/4">
-                    <p class="text-3xl sm:text-4xl mb-4 text-white font-semibold"> {{ __("site.banner_text") }}</p>
-                    <p class="text-lg sm:text-2xl text-white uppercase whitespace-pre-wrap text-left">{{ __("site.banner_sub_text") }}</p>
+                    <p class="text-3xl sm:text-4xl mb-4 text-white uppercase font-taurus"> {{ __("site.banner_text") }}</p>
+                    <p class="text-lg sm:text-2xl font-taurus text-white whitespace-pre-wrap text-left">{{ __("site.banner_sub_text") }}</p>
                   </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
 
     @if ($about_vaccination)
     <div class="rounded-md border-yellow-500 border-t-4 shadow-lg mb-4 pb-2">
-      <h1 class="text-lg uppercase border-b p-4">{{ $about_vaccination->{'title_'.app()->getLocale()} }}</h1>
+      <h1 class="text-lg uppercase font-baltica border-b p-4">{{ $about_vaccination->{'title_'.app()->getLocale()} }}</h1>
         <div class="p-4 font-tahoma">
             {!! $about_vaccination->{'content_'.app()->getLocale()} !!}
         </div>
@@ -27,7 +27,7 @@
 
     <div class="rounded-md border-yellow-500 border-t-4 shadow-lg">
         <div class="flex justify-between items-center p-4 border-b">
-            <h1 class="text-lg uppercase">{{ __("site.database of scientific articles and evidence") }}</h1>
+            <h1 class="text-lg font-baltica uppercase">{{ __("site.database of scientific articles and evidence") }}</h1>
             <div class="w-8 h-8">
                 <a href="{{ route('posts',['locale'=>app()->getLocale()]) }}">
                     <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"

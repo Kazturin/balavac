@@ -1,5 +1,5 @@
 <div class="rounded-md border-yellow-500 border-t-4 shadow-lg mb-4 pb-2">
-                    <h1 class="text-lg p-4 border-b uppercase">{{ __('site.vaccine_route') }}</h1>
+                    <h1 class="text-lg p-4 border-b font-baltica uppercase">{{ __('site.vaccine_route') }}</h1>
                     <ul class="grid grid-rows-3 grid-flow-col mt-4 gap-4 mb-4">
                         @foreach ($vaccineByAge as $key=>$item)
                          <li class="m-auto">

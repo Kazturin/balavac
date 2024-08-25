@@ -70,13 +70,13 @@
                 <div class="hidden lg:flex ">
                     <a href="/"><img class="h-28" src="/logo.png" alt="logo"></a>
                 </div>
-                <div class="hidden lg:flex lg:gap-x-6 lg:justify-end">
+                <div class="hidden lg:flex lg:gap-x-6 lg:justify-end font-baltica">
                     @foreach($menu as $item)
                         @if(count($item->children) > 0)
                             <div class="relative">
                                 <button @click="openMenu === {{ $item->id }} ? openMenu = null : openMenu = {{ $item->id }}"
                                     type="button"
-                                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
+                                    class="flex items-center gap-x-1 text-base font-semibold leading-6 text-gray-900"
                                     aria-expanded="false">
                                     {{ $item->{'title_'.app()->getLocale()} }}
                                     <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -98,7 +98,7 @@
                                     aria-label="submenu">
                                     <div class="p-4">
                                         @foreach($item->children as $child)
-                                            <div class="relative text-sm leading-6 border-b pb-2 hover:bg-gray-50">
+                                            <div class="relative text-base leading-6 border-b pb-2 hover:bg-gray-50">
                                                 <a href="{{ $child->page ? route('page', ['locale'=>app()->getLocale(),'page'=>$child->page]) : '#' }}"
                                                     class="block font-semibold text-gray-900">
                                                     {{ $child->{'title_'.app()->getLocale()} }}
@@ -112,7 +112,7 @@
                             </div>
                         @else
                             <a href="{{ $item->link?$item->link:( $item->page ? route('page', ['locale'=>app()->getLocale(),'page'=>$item->page]) : '#' ) }}"
-                                class="text-sm font-semibold leading-6 text-gray-900">{{ $item->{'title_'.app()->getLocale()} }}</a>
+                                class="text-base font-semibold leading-6 text-gray-900">{{ $item->{'title_'.app()->getLocale()} }}</a>
                         @endif
                     @endforeach
                 </div>
@@ -204,7 +204,7 @@
 
                     <div class="rounded-md border-yellow-500 border-t-4 shadow-lg mb-4">
                         <div class="flex justify-between items-center border-b p-4">
-                            <h1 class="text-xl">{{ __('site.last_news') }}</h1>
+                            <h1 class="font-baltica text-xl">{{ __('site.last_news') }}</h1>
                             <div class="w-8 h-8">
                                 <a href="{{ route('news',['locale'=>app()->getLocale()]) }}">
                                     <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round"

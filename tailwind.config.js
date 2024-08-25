@@ -47,7 +47,10 @@ export default {
           },
       },
       fontFamily : {
-        mon: ["KZ_Mon_Amour_One"],
+        russoOne : [ "'RussoOne-Regular' , sans-serif" ],
+                baltica: ["Baltica KZ"],
+                taurus: ["KZ Taurus"],
+                mon: ["KZ_Mon_Amour_One"],
         tahoma: ["Tahoma"],
     },
   },

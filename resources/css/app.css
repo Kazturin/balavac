@@ -9,6 +9,14 @@
 } */
 
 @font-face {
+    font-family: "Baltica KZ";
+    src: url("$fonts/Baltica KZ.ttf");
+}
+@font-face {
+    font-family: "KZ Taurus";
+    src: url("$fonts/KZ Taurus.ttf");
+}
+@font-face {
     font-family: "KZ_Mon_Amour_One";
     src: url("$fonts/KZ_Mon_Amour_One.ttf");
 }
